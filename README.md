@@ -4,4 +4,4 @@
 PUG stuff and servers one and two
 
 # [Week 2](https://github.com/muhro/projekti34.1/tree/master/week2) 
-Routing and Middleware
+Routing and Middleware, PUT POST AND DELETE METHODS
