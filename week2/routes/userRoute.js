@@ -2,6 +2,8 @@
 // userRoute
 const express = require('express');
 const router = express.Router();
+const bodyParser = require('body-parser');
+const multer = require('multer');
 const userController = require('../controllers/userController');
 
 
@@ -14,6 +16,7 @@ router.get('/', (req, res,) => {
 });
 router.get('/', (req, res,) => {
     res.send('From this endpoint you can get users.')
+
 });
 
 router.get('/:id', (req, res) => {
@@ -22,8 +25,12 @@ router.get('/:id', (req, res) => {
     res.send(id)
 });
 
+router.use(bodyParser.json()) // for parsing application/json
+router.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
 router.post('/', (req, res) => {
     res.send('With this endpoint you can add users.')
+    console.log(req.body)
 });
 
 router.delete('/', (req, res) =>{
