@@ -4,21 +4,18 @@ const express = require('express');
 const router = express.Router();
 const catController = require('../controllers/catController');
 const multer  = require('multer');
-const upload = multer({ dest: './uploads/' });
+const upload = multer({ dest: '../uploads/' });
 
 const app = express();
 
-app.post('/', upload.single('name'), function (req, res, next) {
-    // req.file is the `avatar` file
-    // req.body will hold the text fields, if there were any
+app.post('/', upload.single('avatar'), (req, res, next) =>{
+});
+app.post('/', upload.array('cat', 12), function (req, res, next) {
+});
+const cpUpload = upload.fields([{ name: 'avatar', maxCount: 1 }, { name: 'cat', maxCount: 8 }])
+app.post('/', cpUpload, function (req, res, next) {
 });
 
-
-
-const cpUpload = upload.fields([{ name: 'name', maxCount: 1 }, { name: 'gallery', maxCount: 8 }])
-app.post('/cool-profile', cpUpload, function (req, res, next) {
-
-});
 router.get('/', catController.cat_list_get);
 
 router.get('/:id', catController.cat_get);
@@ -38,6 +35,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     res.send('With this endpoint you can add cats.')
+    console.log(req.body)
 });
 
 router.delete('/', (req, res) =>{
