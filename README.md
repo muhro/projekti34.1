@@ -4,4 +4,7 @@
 PUG stuff and servers one and two
 
 # [Week 2](https://github.com/muhro/projekti34.1/tree/master/week2) 
-Routing(1-7 DONE) and Middleware
+Routing(1-7 DONE) and Middleware DONE
+
+# [Week 24](https://github.com/muhro/projekti34.1/tree/master/week4) 
+Passport tried
