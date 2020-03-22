@@ -5,7 +5,8 @@ const cors = require('cors');
 const port = 3000;
 const passport = require('./utils/pass');
 const authRoute = require('./routes/authRoute');
-
+const catRoute = require('./routes/catRoute');
+const userRoute = require('./routes/userRoute');
 
 app.use(cors());
 
