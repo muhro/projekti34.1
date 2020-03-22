@@ -5,6 +5,7 @@ const userModel = require('../models/userModel');
 
 // local strategy for username password login
 passport.use(new Strategy(
+    // TODO: JWT strategy for handling bearer token
     async (username, password, done) => {
         const params = [username];
         try {
@@ -22,7 +23,7 @@ passport.use(new Strategy(
         }
     }));
 
-// TODO: JWT strategy for handling bearer token
+
 
 
 module.exports = passport;
