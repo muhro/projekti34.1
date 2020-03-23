@@ -2,16 +2,21 @@ const router = require('express').Router();
 const cat = require('./model/cat');
 
 router.route('/')
-    .post(async (req, res) => {
-        const mycat = await cat.create({
-            name: 'kisu',
-            age: 12
-        });
-        res.send(`cat is created with ${mycat._id}`);
-    })
-    .get(async (req, res) => {
-    res.send(await cat.find());
-    });
+ .post(async (req, res) => {
+       const mycat = await cat.create({
+           name: 'kisu',
+           age: 12,
+           gender:  'M',
+           color: 'grey',
+           weight: 12
+       });
+       res.send(`cat is created with ${mycat._id}`);
+   })
+   .get(async (req, res) => {
+   res.send(await cat.find());
+   });
+
+
 
 router.route('/:id')
     .get(async (req, res) => {
