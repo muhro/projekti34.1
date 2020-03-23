@@ -14,7 +14,7 @@ Passport tried
 	<pre>Cannot POST /auth/login</pre>
 	
 	
-#SECOND WEEK 
+# SECOND WEEK 
 
 ### [MongoBD STUFF](https://github.com/muhro/projekti34.1/tree/master/secondWeek/week4) 
 database connection, schema for data ...
