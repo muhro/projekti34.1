@@ -4,23 +4,22 @@ const passport = require('passport');
 
 
 const login = (req, res) => {
-    // TODO: add passport authenticate
-    passport.use(new LocalStrategy({
-            usernameField: 'email',
-            passwordField: 'password'
-        },
-         (email, password, done) => {
-            //this one is typically a DB call. Assume that the returned user object is pre-formatted and ready for storing in JWT
-            return UserModel.findOne({email, password})
-                .then(user => {
-                    if (!user) {
-                        return done(null, false, {message: 'Incorrect email or password.'});
-                    }
-                    return done(null, user, {message: 'Logged In Successfully'});
-                })
-                .catch(err => done(err));
+    passport.authenticate('local', {session: false}, (err, user, info) => {
+        if (err || !user) {
+            return res.status(400).json({
+                message: 'Something is not right',
+                user   : user
+            });
         }
-    ));
+        req.login(user, {session: false}, (err) => {
+            if (err) {
+                res.send(err);
+            }
+            // generate a signed son web token with the contents of user object and return it in the response
+            const token = jwt.sign(user, 'your_jwt_secret');
+            return res.json({user, token});
+        });
+    })(req, res);
 };
 
 

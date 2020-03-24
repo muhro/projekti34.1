@@ -6,13 +6,11 @@ const catController = require('../controllers/catController');
 const multer  = require('multer');
 const upload = multer({ dest: './uploads/' });
 
-const app = express();
-
 router.post('/', upload.single('avatar'), (req, res, next) =>{
 });
 router.post('/', upload.array('cat', 12), function (req, res, next) {
 });
-const cpUpload = upload.fields([{ name: 'avatar', maxCount: 1 }, { name: 'cat', maxCount: 8 }])
+const cpUpload = upload.fields([{ name: 'avatar', maxCount: 1 }, { name: 'cat', maxCount: 8 }]);
 router.post('/', cpUpload, function (req, res, next) {
 });
 

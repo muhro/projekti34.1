@@ -1,4 +1,8 @@
-const getUserLogin = async (params) => {
+
+
+
+
+           const getUserLogin = async (params) => {
     try {
         console.log(params);
         const [rows] = await promisePool.execute(
@@ -9,8 +13,7 @@ const getUserLogin = async (params) => {
         console.log('error', e.message);
     }
 };
-/*
+
 module.exports = {
     getUserLogin,
 };
-*/
