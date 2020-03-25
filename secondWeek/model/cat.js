@@ -9,7 +9,7 @@ const color = [];
 const catSchema = new Schema({
     name: String,
     age: Number,
-    owner: mongoose.ObjectId,
+    owner: {type: mongoose.ObjectId, ref: 'user'},
    gender:  { type: String, enum: gender },
    color: String,
    weight: Number
