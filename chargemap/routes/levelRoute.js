@@ -1,13 +1,13 @@
 'use strict';
-// levelsRoute
+// levelRoute
 const express = require('express');
 const router = express.Router();
-const levelsController = require('../controllers/levelsController');
+const levelController = require('../controllers/levelController');
 
-router.get('/', levelsController.levels_list_get);
+router.get('/', levelController.level_list_get);
 
-router.get('/:id', levelsController.levels_get);
+router.get('/:id', levelController.level_get);
 
-router.post('/', levelsController.levels_post);
+router.post('/', levelController.level_post);
 
 module.exports = router;

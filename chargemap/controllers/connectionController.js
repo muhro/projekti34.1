@@ -6,7 +6,7 @@ const connection_list_get = async (req, res) => {
   const connection = await connectionModel.find();
   res.json(connection);
   } catch (e){
-    res.error(e.message)
+    res.status(500).json({message: e})
   }
 };
 
@@ -15,7 +15,7 @@ const connection_get = async (req, res) => {
     const connection = await connectionModel.findById(req.params.id);
     res.json(connection);
   } catch (e){
-    res.error(e.message)
+    res.status(500).json({message: e})
   }
 };
 

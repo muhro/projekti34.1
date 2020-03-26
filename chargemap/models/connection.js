@@ -8,7 +8,9 @@ const connectionSchema = new Schema({
     ConnectionTypeID: {
        FormalName: String,
         Title: String,
-    },
+    }
 });
+
+
 
 module.exports = mongoose.model('Connection', connectionSchema);

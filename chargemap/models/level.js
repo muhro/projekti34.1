@@ -4,14 +4,13 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const currentSchema = new Schema({
+const levelSchema = new Schema({
   //TODO: schema
-    ConnectionTypeID: {
-        Description: String,
+    LevelType: {
         Title: String,
+        Comments: String,
+        IsFastChargeCapable: String,
     },
-    
-
 });
 
-module.exports = mongoose.model('current', currentSchema);
+module.exports = mongoose.model('Level', levelSchema);

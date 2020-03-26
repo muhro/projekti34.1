@@ -1,30 +1,30 @@
 'use strict';
-const connectionModel = require('../models/connection');
+const currentModel = require('../models/current');
 
-const connection_list_get = async (req, res) => {
+const current_list_get = async (req, res) => {
   try {
-  const connection = await connectionModel.find();
-  res.json(connection);
+  const current = await currentModel.find();
+  res.json(current);
   } catch (e){
-    res.error(e.message)
+    res.status(500).json({message: e})
   }
 };
 
-const connection_get = async (req, res) => {
+const current_get = async (req, res) => {
   try {
-    const connection = await connectionModel.findById(req.params.id);
-    res.json(connection);
+    const current = await currentModel.findById(req.params.id);
+    res.json(current);
   } catch (e){
-    res.error(e.message)
+    res.status(500).json({message: e})
   }
 };
 
-const connection_post = (req, res) => {
-  res.send('With this endpoint you can add connections');
+const current_post = (req, res) => {
+  res.send('With this endpoint you can add currents');
 };
 
 module.exports = {
-  connection_list_get,
-  connection_get,
-  connection_post,
+  current_list_get,
+  current_get,
+  current_post,
 };
