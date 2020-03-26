@@ -1,13 +1,13 @@
 'use strict';
-// stationRoute
+// ConnectionRoute
 const express = require('express');
 const router = express.Router();
-const stationController = require('../controllers/stationController');
+const connectionController = require('../controllers/connectionController');
 
-router.get('/', stationController.station_list_get);
+router.get('/', connectionController.connection_list_get);
 
-router.get('/:id', stationController.station_get);
+router.get('/:id', connectionController.connection_get);
 
-router.post('/', stationController.station_post);
+router.post('/', connectionController.connection_post);
 
 module.exports = router;

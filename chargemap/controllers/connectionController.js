@@ -1,30 +1,30 @@
 'use strict';
-const stationModel = require('../models/station');
+const connectionModel = require('../models/connection');
 
-const station_list_get = async (req, res) => {
+const connection_list_get = async (req, res) => {
   try {
-  const stations = await stationModel.find().populate('Connections');
-  res.json(stations);
+  const connection = await connectionModel.find();
+  res.json(connection);
   } catch (e){
     res.error(e.message)
   }
 };
 
-const station_get = async (req, res) => {
+const connection_get = async (req, res) => {
   try {
-    const stations = await stationModel.findById(req.params.id);
-    res.json(stations);
+    const connection = await connectionModel.findById(req.params.id);
+    res.json(connection);
   } catch (e){
     res.error(e.message)
   }
 };
 
-const station_post = (req, res) => {
-  res.send('With this endpoint you can add stations');
+const connection_post = (req, res) => {
+  res.send('With this endpoint you can add connections');
 };
 
 module.exports = {
-  station_list_get,
-  station_get,
-  station_post,
+  connection_list_get,
+  connection_get,
+  connection_post,
 };
