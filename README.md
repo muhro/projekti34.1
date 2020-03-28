@@ -20,3 +20,4 @@ Passport tried
 database connection, schema for data ...
 
 ### [ChargeStation](https://github.com/muhro/projekti34.1/tree/master/chargemap) 
+.Populate toimii
