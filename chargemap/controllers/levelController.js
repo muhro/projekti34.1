@@ -1,30 +1,32 @@
 'use strict';
-const levelModel = require('../models/level');
+const levelsModel = require('../models/level');
 
-const level_list_get = async (req, res) => {
-  try {
-  const level = await levelModel.find();
-  res.json(level);
-  } catch (e){
-    res.status(500).json({message: e})
-  }
+const levels_list_get = async (req, res) => {
+    try {
+        const levels = await levelsModel.find();
+        res.json(levels);
+    } catch (e) {
+        console.error('levels_list_get', e);
+        res.status(500).json({message: e.message});
+    }
 };
 
-const level_get = async (req, res) => {
-  try {
-    const level = await levelModel.findById(req.params.id);
-    res.json(level);
-  } catch (e){
-    res.status(500).json({message: e})
-  }
+const levels_get = async (req, res) => {
+    try {
+        const levels = await levelsModel.findById(req.params.id);
+        res.json(levels);
+    } catch (e) {
+        console.error('levels_get', e);
+        res.status(500).json({message: e.message});
+    }
 };
 
-const level_post = (req, res) => {
-  res.send('With this endpoint you can add levels');
+const levels_post = (req, res) => {
+    res.send('With this endpoint you can add levelss');
 };
 
 module.exports = {
-  level_list_get,
-  level_get,
-  level_post,
+    levels_list_get,
+    levels_get,
+    levels_post,
 };

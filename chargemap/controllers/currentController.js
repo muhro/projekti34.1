@@ -1,30 +1,32 @@
 'use strict';
-const currentModel = require('../models/current');
+const currentTypeModel = require('../models/current');
 
-const current_list_get = async (req, res) => {
-  try {
-  const current = await currentModel.find();
-  res.json(current);
-  } catch (e){
-    res.status(500).json({message: e})
-  }
+const currentType_list_get = async (req, res) => {
+    try {
+        const currentTypes = await currentTypeModel.find();
+        res.json(currentTypes);
+    } catch (e) {
+        console.error('currentType_list_get', e);
+        res.status(500).json({message: e.message});
+    }
 };
 
-const current_get = async (req, res) => {
-  try {
-    const current = await currentModel.findById(req.params.id);
-    res.json(current);
-  } catch (e){
-    res.status(500).json({message: e})
-  }
+const currentType_get = async (req, res) => {
+    try {
+        const currentType = await currentTypeModel.findById(req.params.id);
+        res.json(currentType);
+    } catch (e) {
+        console.error('currentType_get', e);
+        res.status(500).json({message: e.message});
+    }
 };
 
-const current_post = (req, res) => {
-  res.send('With this endpoint you can add currents');
+const currentType_post = (req, res) => {
+    res.send('With this endpoint you can add currentTypes');
 };
 
 module.exports = {
-  current_list_get,
-  current_get,
-  current_post,
+    currentType_list_get,
+    currentType_get,
+    currentType_post,
 };

@@ -1,13 +1,13 @@
 'use strict';
-// currentRoute
+// currentTypeRoute
 const express = require('express');
 const router = express.Router();
-const currentController = require('../controllers/currentController');
+const currentTypeController = require('../controllers/currentController');
 
-router.get('/', currentController.current_list_get);
+router.get('/', currentTypeController.currentType_list_get);
 
-router.get('/:id', currentController.current_get);
+router.get('/:id', currentTypeController.currentType_get);
 
-router.post('/', currentController.current_post);
+router.post('/', currentTypeController.currentType_post);
 
 module.exports = router;

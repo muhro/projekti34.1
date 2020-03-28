@@ -1,30 +1,32 @@
 'use strict';
-const connectionModel = require('../models/connection');
+const connectionTypesModel = require('../models/connection');
 
-const connection_list_get = async (req, res) => {
-  try {
-  const connection = await connectionModel.find();
-  res.json(connection);
-  } catch (e){
-    res.status(500).json({message: e})
-  }
+const connectionTypes_list_get = async (req, res) => {
+    try {
+        const connectionTypes = await connectionTypesModel.find().populate('ConnectionTypes');
+        res.json(connectionTypes);
+    } catch (e) {
+        console.error('connectionTypes_list_get', e);
+        res.status(500).json({message: e.message});
+    }
 };
 
-const connection_get = async (req, res) => {
-  try {
-    const connection = await connectionModel.findById(req.params.id);
-    res.json(connection);
-  } catch (e){
-    res.status(500).json({message: e})
-  }
+const connectionTypes_get = async (req, res) => {
+    try {
+        const connectionTypes = await connectionTypesModel.findById(req.params.id);
+        res.json(connectionTypes);
+    } catch (e) {
+        console.error('connectionTypes_get', e);
+        res.status(500).json({message: e.message});
+    }
 };
 
-const connection_post = (req, res) => {
-  res.send('With this endpoint you can add connections');
+const connectionTypes_post = (req, res) => {
+    res.send('With this endpoint you can add connectionTypes');
 };
 
 module.exports = {
-  connection_list_get,
-  connection_get,
-  connection_post,
+    connectionTypes_list_get,
+    connectionTypes_get,
+    connectionTypes_post,
 };
