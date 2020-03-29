@@ -3,7 +3,7 @@ const currentTypeModel = require('../models/current');
 
 const currentType_list_get = async (req, res) => {
     try {
-        const currentTypes = await currentTypeModel.find();
+        const currentTypes = await currentTypeModel.findOne();
         res.json(currentTypes);
     } catch (e) {
         console.error('currentType_list_get', e);

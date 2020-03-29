@@ -8,7 +8,10 @@ const stationSchema = new Schema({
     Town: String,
     StateOrProvince: String,
     Postcode: String,
-    Connections: [{type: Schema.Types.ObjectId, ref: 'Connection'}],
+    Connections: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Connection'
+    }],
     Location: {
         type: {
             type: String,

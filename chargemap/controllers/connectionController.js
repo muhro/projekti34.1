@@ -3,7 +3,7 @@ const connectionTypesModel = require('../models/connection');
 
 const connectionTypes_list_get = async (req, res) => {
     try {
-        const connectionTypes = await connectionTypesModel.find().populate('ConnectionTypes');
+        const connectionTypes = await connectionTypesModel.findOne().populate('ConnectionTypes');
         res.json(connectionTypes);
     } catch (e) {
         console.error('connectionTypes_list_get', e);

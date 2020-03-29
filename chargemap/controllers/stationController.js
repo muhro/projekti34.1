@@ -3,7 +3,7 @@ const stationModel = require('../models/station');
 
 const station_list_get = async (req, res) => {
     try {
-        const stations = await stationModel.find().populate({
+        const stations = await stationModel.findOne().populate({
             path: "Connections",
             populate: [
                 {path: "ConnectionTypeID"},

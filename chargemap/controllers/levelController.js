@@ -3,8 +3,8 @@ const levelsModel = require('../models/level');
 
 const levels_list_get = async (req, res) => {
     try {
-        const levels = await levelsModel.find();
-        res.json(levels);
+        const level = await levelsModel.findOne();
+        res.json(level);
     } catch (e) {
         console.error('levels_list_get', e);
         res.status(500).json({message: e.message});
@@ -13,8 +13,8 @@ const levels_list_get = async (req, res) => {
 
 const levels_get = async (req, res) => {
     try {
-        const levels = await levelsModel.findById(req.params.id);
-        res.json(levels);
+        const level = await levelsModel.findById(req.params.id);
+        res.json(level);
     } catch (e) {
         console.error('levels_get', e);
         res.status(500).json({message: e.message});
