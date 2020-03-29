@@ -13,6 +13,7 @@ const login = (req, res) => {
         req.login(user, {session: false}, (err) => {
             if (err){
                 res.send(err);
+                console.log('d');
             }
             //TODO: .env file access
             const token = jwt.sign(user, process.env.your_jwt_token);
