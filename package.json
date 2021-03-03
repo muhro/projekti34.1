@@ -7,7 +7,7 @@
     "dotenv": "^8.2.0",
     "express": "latest",
     "mongoose": "^5.9.5",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "pug-cli": "^1.0.0-alpha6"
   },
   "devDependencies": {
